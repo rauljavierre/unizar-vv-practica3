@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.Normalizer;
+import java.util.Scanner;
 
 /**
  * Clase para el análisis de la frecuencia de aparición de letras del alfabeto español en un
@@ -22,12 +23,9 @@ import java.text.Normalizer;
  *
  */
 public class ContadorDeLetras {
-    // private File fichero;    Eliminada porque no hago uso de la misma
-    private int[] frecuencias = null;
 
-    // Añadidas por mí
-    private final long LONGITUD;
-    private final String FICHERO_STRING;
+    private File fichero;
+    private int[] frecuencias = null;
 
     /**
      * Construye un ContadorDeLetras para frecuencias la frecuencia en las que aparecen las letras
@@ -36,9 +34,7 @@ public class ContadorDeLetras {
      *            fichero de texto cuyo contenido será analizado.
      */
     public ContadorDeLetras(File fichero) {
-        // this.fichero = fichero;
-        this.LONGITUD = fichero.length();
-        this.FICHERO_STRING = ;
+        this.fichero = fichero;
     }
 
     /**
@@ -56,27 +52,43 @@ public class ContadorDeLetras {
      *             puede abrirse.
      */
     public int[] frecuencias() throws FileNotFoundException {
-        if (frecuencias == null) {
+        if (this.frecuencias == null) {
             this.frecuencias = new int[27];
-            for(int i = 0; i < LONGITUD; i++){
-                char c = FICHERO_STRING.charAt(i);  // charAt(i) no admite i != int... Problemas con ficheros MUY grandes
-                detectamosCaracterYActualizamosFrecuencia(c);
+            Scanner scanner = new Scanner(this.fichero);
+            while(scanner.hasNext()){ // Probablemente haya un mejor método... Investigar
+                String palabra = scanner.next();
+                for(int i = 0; i < palabra.length(); i++) {
+                    char c = palabra.charAt(i);
+                    detectamosCaracterYActualizamosFrecuencia(c);
+                }
             }
         }
         return frecuencias;
     }
 
     private void detectamosCaracterYActualizamosFrecuencia(char c){
-        c = Character.toLowerCase(c);
-        if(c == 'ñ'){
+        if(c == 'ñ' || c == 'Ñ') {
             frecuencias[26]++;
         }
-        else{
-            Normalizer
+        else {
+            c = Normalizer
                     .normalize("" + c, Normalizer.Form.NFD)
-                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-            System.out.println(c);
-            frecuencias[c - 'a']++;
+                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
+                    .charAt(0);
+            if(isAlpha(c)){
+                if(isUppercase(c)){
+                    c = (char) (c - 'A' + 'a');
+                }
+                frecuencias[c - 'a']++;
+            }
         }
+    }
+
+    private boolean isAlpha(char c){
+        return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
+    }
+
+    private boolean isUppercase(char c){
+        return c >= 'A' && c <= 'Z';
     }
 }

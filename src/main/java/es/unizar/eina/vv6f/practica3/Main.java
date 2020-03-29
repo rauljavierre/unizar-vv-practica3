@@ -17,8 +17,9 @@ import java.util.Scanner;
  */
 public class Main {
 
-    private static final String FORMATO_SALIDA_FRECUENCIAS = "%c: %7d%n";
+    private static final String FORMATO_SALIDA_FRECUENCIAS = "%n%c: %7d";
     private static final int NUM_LETRAS = 27;
+    private static final int POS_Ñ = 14;
 
     /**
      * Método que, al iniciar su ejecución, solicita al usuario el nombre de un fichero de texto.
@@ -36,11 +37,9 @@ public class Main {
      *            no utilizado.
      */
     public static void main(String[] args) {
-        ContadorDeLetras contador;
-        int[] apariciones;
         try{
-            contador = crearContadorEspecifico();
-            apariciones = contador.frecuencias();
+            ContadorDeLetras contador = crearContadorEspecifico();
+            int[] apariciones = contador.frecuencias();
             imprimirApariciones(apariciones);
         }
         catch(FileNotFoundException | NullPointerException e){
@@ -49,21 +48,23 @@ public class Main {
     }
 
     private static ContadorDeLetras crearContadorEspecifico(){
+        return new ContadorDeLetras(generarFile());
+    }
+
+    private static File generarFile(){
         System.out.print("Nombre de un fichero de texto: ");
         Scanner scanner = new Scanner(System.in);
         String nombreFichero = scanner.nextLine();
-        if(nombreFichero.isEmpty()){
-            return null;
-        }
-        return new ContadorDeLetras(new File("src/main/res/" + nombreFichero));
+        scanner.close();
+        return new File(nombreFichero);
     }
 
     private static void imprimirApariciones(int[] apariciones){
-        for(int i = 0; i < NUM_LETRAS - 1; i++){
+        for(int i = 0; i < NUM_LETRAS - 1; i++) {
+            if(i == POS_Ñ) {
+                System.out.format(FORMATO_SALIDA_FRECUENCIAS, 'Ñ', apariciones[26]);
+            }
             System.out.format(FORMATO_SALIDA_FRECUENCIAS, 'A' + i, apariciones[i]);
         }
-
-        // Para imprimir la Ñ en el lugar 27
-        System.out.format(FORMATO_SALIDA_FRECUENCIAS, 'Ñ', apariciones[26]);
     }
 }
