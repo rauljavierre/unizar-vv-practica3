@@ -1,5 +1,9 @@
 package es.unizar.eina.vv6f.practica3;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 /**
  * Programa Java que, al iniciar su ejecución, solicita al usuario el nombre de un fichero de texto.
  * A continuación, si el fichero existe y se puede leer, muestra en la salida estándar una lista de
@@ -14,6 +18,7 @@ package es.unizar.eina.vv6f.practica3;
 public class Main {
 
     private static final String FORMATO_SALIDA_FRECUENCIAS = "%c: %7d%n";
+    private static final int NUM_LETRAS = 27;
 
     /**
      * Método que, al iniciar su ejecución, solicita al usuario el nombre de un fichero de texto.
@@ -31,6 +36,34 @@ public class Main {
      *            no utilizado.
      */
     public static void main(String[] args) {
+        ContadorDeLetras contador;
+        int[] apariciones;
+        try{
+            contador = crearContadorEspecifico();
+            apariciones = contador.frecuencias();
+            imprimirApariciones(apariciones);
+        }
+        catch(FileNotFoundException | NullPointerException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
+    private static ContadorDeLetras crearContadorEspecifico(){
+        System.out.print("Nombre de un fichero de texto: ");
+        Scanner scanner = new Scanner(System.in);
+        String nombreFichero = scanner.nextLine();
+        if(nombreFichero.isEmpty()){
+            return null;
+        }
+        return new ContadorDeLetras(new File("src/main/res/" + nombreFichero));
+    }
+
+    private static void imprimirApariciones(int[] apariciones){
+        for(int i = 0; i < NUM_LETRAS - 1; i++){
+            System.out.format(FORMATO_SALIDA_FRECUENCIAS, 'A' + i, apariciones[i]);
+        }
+
+        // Para imprimir la Ñ en el lugar 27
+        System.out.format(FORMATO_SALIDA_FRECUENCIAS, 'Ñ', apariciones[26]);
     }
 }
