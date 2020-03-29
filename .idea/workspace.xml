@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb55d317-5844-4052-bebf-f2697e0c3066" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Znrm9tCLu9puitpGh9CBCVkDhq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="es.unizar.eina.vv6f.practica3" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb55d317-5844-4052-bebf-f2697e0c3066" name="Default Changelist" comment="" />
+      <created>1585485855927</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585485855927</updated>
+      <workItem from="1585485857643" duration="20000" />
+      <workItem from="1585491301725" duration="2480000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2475" y="201" width="800" height="736" key="#Intentions" timestamp="1585493002955">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2475" y="201" width="800" height="736" key="#Intentions/1920.0.1920.1080/0.284.1920.1080@1920.0.1920.1080" timestamp="1585493002955" />
+    <state x="2552" y="436" width="646" height="215" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585493779565">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2552" y="436" width="646" height="215" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/1920.0.1920.1080/0.284.1920.1080@1920.0.1920.1080" timestamp="1585493779565" />
+    <state x="2617" y="257" width="516" height="580" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1585493769309">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2617" y="257" width="516" height="580" key="com.intellij.testIntegration.createTest.CreateTestDialog/1920.0.1920.1080/0.284.1920.1080@1920.0.1920.1080" timestamp="1585493769309" />
+  </component>
+</project>
