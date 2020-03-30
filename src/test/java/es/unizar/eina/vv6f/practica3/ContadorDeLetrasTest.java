@@ -33,7 +33,7 @@ public class ContadorDeLetrasTest {
         assertArrayEquals(vectorEsperado, vectorObtenido);
     }
 
-    @Test // Falla pero puede que sea por un error tipográfico en los expected: 129829 -> 129820
+    @Test // Falla pero puede que sea por un error tipográfico en los expected... 129829 -> 129820
     public void frecuencias_regenta() throws FileNotFoundException {
         int[] vectorEsperado = leerSalidaEsperada(new File("src/test/res/salida-regenta.txt"));
         ContadorDeLetras contador = new ContadorDeLetras(new File("src/main/res/regenta.txt"));
