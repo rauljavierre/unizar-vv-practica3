@@ -26,6 +26,7 @@ public class ContadorDeLetras {
 
     private File fichero;
     private int[] frecuencias = null;
+    private final int NUM_LETRAS = 27;
 
     /**
      * Construye un ContadorDeLetras para frecuencias la frecuencia en las que aparecen las letras
@@ -53,7 +54,7 @@ public class ContadorDeLetras {
      */
     public int[] frecuencias() throws FileNotFoundException {
         if (this.frecuencias == null) {
-            this.frecuencias = new int[27];
+            this.frecuencias = new int[NUM_LETRAS];
             Scanner scanner = new Scanner(this.fichero);
             while(scanner.hasNext()){ // Probablemente haya un mejor método... Investigar
                 String palabra = scanner.next();
@@ -68,7 +69,7 @@ public class ContadorDeLetras {
 
     private void detectamosCaracterYActualizamosFrecuencia(char c){
         if(c == 'ñ' || c == 'Ñ') {
-            frecuencias[26]++;
+            frecuencias[NUM_LETRAS - 1]++;
         }
         else {
             c = Normalizer

@@ -1,4 +1,3 @@
-Nombre de un fichero de texto: 
 A:    9912
 B:    1816
 C:    2612
@@ -26,4 +25,3 @@ W:    3129
 X:     175
 Y:    3196
 Z:      72
-
