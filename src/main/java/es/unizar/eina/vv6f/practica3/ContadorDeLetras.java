@@ -56,7 +56,7 @@ public class ContadorDeLetras {
         if (this.frecuencias == null) {
             this.frecuencias = new int[NUM_LETRAS];
             Scanner scanner = new Scanner(this.fichero);
-            while(scanner.hasNext()){ // Probablemente haya un mejor método... Investigar
+            while(scanner.hasNext()){
                 String palabra = scanner.next();
                 for(int i = 0; i < palabra.length(); i++) {
                     char c = palabra.charAt(i);
@@ -73,23 +73,23 @@ public class ContadorDeLetras {
         }
         else {
             c = Normalizer
-                    .normalize("" + c, Normalizer.Form.NFD)
+                    .normalize(Character.toString(c), Normalizer.Form.NFD)
                     .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
                     .charAt(0);
-            if(isAlpha(c)){
-                if(isUppercase(c)){
+            if(Character.isLetter(c)){
+                if(!Character.isLowerCase(c)){
                     c = (char) (c - 'A' + 'a');
                 }
-                frecuencias[c - 'a']++;
+                if(c == '°' || c == 'º'){
+                    frecuencias['o' - 'a']++;
+                }
+                else if(c == 'ª'){
+                    frecuencias['a' - 'a']++;
+                }
+                else{
+                    frecuencias[c - 'a']++;
+                }
             }
         }
-    }
-
-    private boolean isAlpha(char c){
-        return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
-    }
-
-    private boolean isUppercase(char c){
-        return c >= 'A' && c <= 'Z';
     }
 }
