@@ -77,7 +77,7 @@ public class MainTest {
         byte[] f1 = Files.readAllBytes(salida.toPath());
         byte[] f2 = Files.readAllBytes(salida_esperada.toPath());
 
-        assertArrayEquals(f1, f2);
+        assertArrayEquals(f2, f1);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class MainTest {
         byte[] f1 = Files.readAllBytes(salida.toPath());
         byte[] f2 = Files.readAllBytes(salida_esperada.toPath());
 
-        assertArrayEquals(f1, f2);
+        assertArrayEquals(f2, f1);
     }
 
     @Test
@@ -115,7 +115,7 @@ public class MainTest {
         byte[] f1 = Files.readAllBytes(salida.toPath());
         byte[] f2 = Files.readAllBytes(salida_esperada.toPath());
 
-        assertArrayEquals(f1, f2);
+        assertArrayEquals(f2, f1);
     }
 
 
@@ -140,7 +140,7 @@ public class MainTest {
         for(int n = 0; (line = br.readLine()) != null; n++) {
             if(n >= 1){
                 sb.append(line);
-                sb.append("\n");
+                sb.append(System.lineSeparator());
             }
         }
         fr.close();
